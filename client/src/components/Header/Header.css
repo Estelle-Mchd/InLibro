@@ -1,0 +1,40 @@
+.header-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--light-bg-bloc-color-bis);
+  padding: 0 24px;
+  margin: 0;
+  height: 10vh;
+
+  img {
+    width: 116px;
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    color: rgb(49, 47, 47);
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+    height: 24px;
+    font-style: var(--font-family-title);
+  }
+
+  button:hover {
+    text-decoration: underline;
+  }
+}
+
+.header-component a {
+  font-style: var(--font-family-title);
+  font-size: 32px;
+  color: rgb(49, 47, 47);
+  cursor: pointer;
+  width: 100px;
+  height: 24px;
+}
+
+.header-component a:hover {
+  text-decoration: underline;
+}

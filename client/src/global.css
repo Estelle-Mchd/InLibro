@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "instrumentSerif-Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url(./src/assets/fonts/instrumentSerif-Regular.ttf) format(truetype);
+}
+
+@font-face {
+  font-family: "italianno-Regular";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  src: url(./src/assets/fonts/italianno-Regular.ttf) format(truetype);
+}
+
+:root {
+  --light-bg-bloc-color: rgba(255, 254, 250);
+  --light-bg-bloc-color-bis: rgba(242, 240, 235);
+  --light-text-color: rgba(30, 30, 30);
+  --font-family-title: "italianno-Regular", sans-serif;
+  --font-family-body: "instrumentSerif-Regular", sans-serif;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+}

@@ -1,0 +1,21 @@
+registration-page {
+  color: white;
+  height: 90vh;
+  display: grid;
+  place-items: center;
+
+  input,
+  label,
+  button {
+    display: block;
+  }
+
+  input {
+    margin: 8px 0;
+  }
+
+  button {
+    padding: 8px;
+    margin: 0 0 0 auto;
+  }
+}
