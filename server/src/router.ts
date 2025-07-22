@@ -4,10 +4,6 @@ const router = express.Router();
 
 import itemActions from "./modules/item/itemActions";
 
-router.get("/items", itemActions.browse);
-router.get("/items/:id", itemActions.read);
-router.post("/items", itemActions.add);
-
 import booksActions from "./modules/books/booksActions";
 import ratingActions from "./modules/rating/ratingActions";
 import readingListActions from "./modules/readingList/readingListActions";
@@ -28,7 +24,8 @@ router.get("/refresh-token", auth.refreshToken);
 router.post("/users", auth.hashPassword, usersActions.add);
 
 router.get("/books", booksActions.browse);
-router.get("/books/:id", booksActions.read);
+router.get("/books/thematics", booksActions.getAllThematics);
+router.get("/books/id/:id", booksActions.read);
 
 router.get("/reading-list/:userId", readingListActions.browseByUser);
 router.post("/reading-list", readingListActions.add);
