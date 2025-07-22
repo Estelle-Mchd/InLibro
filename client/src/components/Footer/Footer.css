@@ -1,0 +1,22 @@
+.footer-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-bg-bloc-color-bis);
+}
+
+.link-footer a {
+  margin: 0 8px;
+  color: rgb(49, 47, 47);
+  cursor: pointer;
+  font-style: var(--font-family-title);
+}
+
+.link-footer a:hover {
+  text-decoration: underline;
+}
+
+.link-logo img {
+  margin: 8px 16px;
+  width: 40px;
+}
