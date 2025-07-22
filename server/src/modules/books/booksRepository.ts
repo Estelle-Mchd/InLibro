@@ -57,6 +57,13 @@ const create = async (book: {
   return result;
 };
 
+const findAllThematics = async (): Promise<string[]> => {
+  const [rows] = await databaseClient.query(
+    "SELECT DISTINCT thematic FROM book",
+  );
+  return (rows as { thematic: string }[]).map((row) => row.thematic);
+};
+
 const update = async (
   id: number,
   updates: Partial<Omit<(typeof create.arguments)[0], "user_id">>,
@@ -76,4 +83,4 @@ const remove = async (id: number) => {
   return result.affectedRows === 1;
 };
 
-export default { readAll, readById, create, update, remove };
+export default { readAll, readById, create, update, remove, findAllThematics };

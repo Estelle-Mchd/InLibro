@@ -11,6 +11,7 @@ type AuthContextType = {
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
   user: UserPayload | null;
   setUser: React.Dispatch<React.SetStateAction<UserPayload | null>>;
+  login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 };
 
@@ -21,16 +22,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<UserPayload | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/refresh", {
+    fetch("http://localhost:3310/api/refresh-token", {
+      method: "GET",
       credentials: "include",
     })
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Token invalide");
-        }
+        if (!res.ok) throw new Error("Token invalide");
         return res.json();
       })
-      .then((data) => {
+      .then((data: UserPayload) => {
         setIsLogged(true);
         setUser(data);
       })
@@ -39,6 +39,23 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUser(null);
       });
   }, []);
+
+  const login = async (email: string, password: string) => {
+    const res = await fetch("http://localhost:3310/api/auth/login", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!res.ok) {
+      throw new Error("Login failed");
+    }
+
+    const userData: UserPayload = await res.json();
+    setIsLogged(true);
+    setUser(userData);
+  };
 
   const logout = () => {
     fetch("http://localhost:3310/api/auth/logout", {
@@ -51,7 +68,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLogged, setIsLogged, user, setUser, logout }}
+      value={{ isLogged, setIsLogged, user, setUser, login, logout }}
     >
       {children}
     </AuthContext.Provider>

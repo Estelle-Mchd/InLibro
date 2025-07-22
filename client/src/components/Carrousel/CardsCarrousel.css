@@ -1,0 +1,37 @@
+.card-carrousel {
+  height: 100%;
+  margin: 0;
+  background-color: var(--light-bg-bloc-color-bis);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.card-carrousel img {
+  object-fit: scale-down;
+  width: auto;
+  height: 75%;
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.card-carrousel p {
+  font-family: var(--font-family-body);
+  font-size: 32px;
+  margin: auto;
+}
+
+.card-carrousel button {
+  width: 200px;
+  background-color: var(--light-bg-bloc-color);
+  font-family: var(--font-family-body);
+  font-size: 24px;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card-carrousel button:hover {
+  text-decoration: underline;
+}

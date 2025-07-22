@@ -1,3 +1,4 @@
+import type { Request, Response } from "express";
 import type { RequestHandler } from "express";
 import booksRepository from "./booksRepository";
 
@@ -68,6 +69,16 @@ const edit: RequestHandler = async (req, res) => {
   }
 };
 
+const getAllThematics = async (req: Request, res: Response) => {
+  try {
+    const thematics = await booksRepository.findAllThematics();
+    res.json(thematics);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erreur serveur lors du chargement des thématiques");
+  }
+};
+
 const destroy: RequestHandler = async (req, res) => {
   const id = Number.parseInt(req.params.id);
   if (Number.isNaN(id)) {
@@ -88,4 +99,4 @@ const destroy: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, edit, destroy };
+export default { browse, read, add, edit, destroy, getAllThematics };
