@@ -12,7 +12,7 @@ CREATE TABLE book (
   name VARCHAR(250) NOT NULL,
   author VARCHAR(250) NOT NULL,
   publicationbookdate DATE NOT NULL,
-  thematic ENUM('fantasy', 'suspense', 'romance', 'autobiography', 'psychology', 'mangas', 'history') NOT NULL,
+  thematic ENUM('fantasy', 'suspense', 'romance', 'autobiographie', 'psychologie', 'mangas', 'histoire') NOT NULL,
   synopsis TEXT NOT NULL,
   publication_date DATE NOT NULL,
   cover_image_url VARCHAR(500),
@@ -62,11 +62,11 @@ INSERT INTO book (name, author, publicationbookdate, thematic, synopsis, publica
  "Elizabeth Bennet tente de naviguer entre les normes sociales de son époque et ses sentiments pour le mystérieux M. Darcy.", 
  "1813-01-28", "https://covers.openlibrary.org/b/id/8225261-L.jpg", 3),
 
-("Une vie", "Simone Veil", "2007-10-01", "autobiography", 
+("Une vie", "Simone Veil", "2007-10-01", "autobiographie", 
  "Témoignage bouleversant de l'ancienne ministre sur la Shoah, sa carrière politique et le combat des femmes.", 
  "2007-10-01", "https://covers.openlibrary.org/b/id/9876543-L.jpg", 4),
 
-("L'Homme qui prenait sa femme pour un chapeau", "Oliver Sacks", "1985-01-01", "psychology", 
+("L'Homme qui prenait sa femme pour un chapeau", "Oliver Sacks", "1985-01-01", "psychologie", 
  "Récits cliniques fascinants sur des patients atteints de troubles neurologiques singuliers.", 
  "1985-01-01", "https://covers.openlibrary.org/b/id/8219131-L.jpg", 5),
 
@@ -74,7 +74,7 @@ INSERT INTO book (name, author, publicationbookdate, thematic, synopsis, publica
  "Un jeune ninja rejeté par les siens rêve de devenir le plus grand Hokage du village.", 
  "1999-09-21", "https://covers.openlibrary.org/b/id/8402751-L.jpg", 1),
 
-("Sapiens : Une brève histoire de l'humanité", "Yuval Noah Harari", "2011-01-01", "history", 
+("Sapiens : Une brève histoire de l'humanité", "Yuval Noah Harari", "2011-01-01", "histoire", 
  "Un voyage passionnant à travers l'histoire de l'espèce humaine, de l'âge de pierre à la révolution numérique.", 
  "2011-01-01", "https://covers.openlibrary.org/b/id/8231856-L.jpg", 2),
 
@@ -94,19 +94,19 @@ INSERT INTO book (name, author, publicationbookdate, thematic, synopsis, publica
  "Ophélie, dotée du pouvoir de lire les objets et de traverser les miroirs, est forcée d’unir son destin à un mystérieux fiancé.",
  "2013-06-06", "https://covers.openlibrary.org/b/id/10394653-L.jpg", 1),
 
-("Les damnés de la terre", "Frantz Fanon", "1961-01-01", "history",
+("Les damnés de la terre", "Frantz Fanon", "1961-01-01", "histoire",
  "Un ouvrage phare sur la décolonisation, la violence révolutionnaire et l’aliénation post-coloniale.", 
  "1961-01-01", "https://covers.openlibrary.org/b/id/13443255-L.jpg", 5),
 
-("Une histoire populaire des États-Unis", "Howard Zinn", "1980-01-01", "history",
+("Une histoire populaire des États-Unis", "Howard Zinn", "1980-01-01", "histoire",
  "Une relecture critique de l’histoire américaine vue par ses opprimés : esclaves, ouvriers, peuples autochtones.",
  "1980-01-01", "https://covers.openlibrary.org/b/id/11009400-L.jpg", 2),
 
-("Peau noire, masques blancs", "Frantz Fanon", "1952-01-01", "history",
+("Peau noire, masques blancs", "Frantz Fanon", "1952-01-01", "histoire",
  "Analyse de la construction raciale et identitaire des colonisés et des conséquences psychologiques du racisme.", 
  "1952-01-01", "https://covers.openlibrary.org/b/id/13001428-L.jpg", 3),
 
-("Le ventre de l’Atlantique", "Fatou Diome", "2003-01-01", "history",
+("Le ventre de l’Atlantique", "Fatou Diome", "2003-01-01", "histoire",
  "Une réflexion sur les illusions migratoires et les traces du colonialisme entre l’Afrique et l’Europe.", 
  "2003-01-01", "https://covers.openlibrary.org/b/id/10458594-L.jpg", 4),
 
@@ -118,19 +118,19 @@ INSERT INTO book (name, author, publicationbookdate, thematic, synopsis, publica
  "Des voisins solitaires décident de vivre ensemble. Une comédie douce sur la solidarité et les sentiments tardifs.",
  "2012-04-01", "https://covers.openlibrary.org/b/id/9876435-L.jpg", 3),
 
-("Devenir", "Michelle Obama", "2018-11-13", "autobiography",
+("Devenir", "Michelle Obama", "2018-11-13", "autobiographie",
  "L’ex-Première Dame des États-Unis retrace son parcours personnel et politique avec sincérité.",
  "2018-11-13", "https://covers.openlibrary.org/b/id/9360861-L.jpg", 1),
 
-("Le lambeau", "Philippe Lançon", "2018-04-04", "autobiography",
+("Le lambeau", "Philippe Lançon", "2018-04-04", "autobiographie",
  "Le témoignage bouleversant d’un rescapé de l’attentat contre Charlie Hebdo, entre reconstruction physique et mentale.",
  "2018-04-04", "https://covers.openlibrary.org/b/id/9295871-L.jpg", 5),
 
-("Les mots sont des fenêtres (ou bien ce sont des murs)", "Marshall B. Rosenberg", "1999-01-01", "psychology",
+("Les mots sont des fenêtres (ou bien ce sont des murs)", "Marshall B. Rosenberg", "1999-01-01", "psychologie",
  "Introduction à la Communication Non Violente, pour mieux comprendre et désamorcer les conflits.",
  "1999-01-01", "https://covers.openlibrary.org/b/id/9283171-L.jpg", 1),
 
-("Manuel de survie à l’usage des hypersensibles", "Thierry Janssen", "2020-06-04", "psychology",
+("Manuel de survie à l’usage des hypersensibles", "Thierry Janssen", "2020-06-04", "psychologie",
  "Un guide pour comprendre et apaiser l’hypersensibilité dans le monde moderne.",
  "2020-06-04", "https://covers.openlibrary.org/b/id/11119234-L.jpg", 4),
 

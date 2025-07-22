@@ -1,0 +1,49 @@
+.home-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-component img {
+  width: 300px;
+}
+
+.home-articles {
+  display: flex;
+  flex-direction: row;
+  margin: 0 24px;
+}
+
+.home-presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  width: 50%;
+}
+
+.home-presentation p {
+  text-align: left;
+  width: 80%;
+  margin: 16px 0;
+}
+
+.home-presentation a {
+  width: 300px;
+  color: rgb(51, 51, 51);
+  background-color: var(--light-bg-bloc-color-bis);
+  border-radius: 20px;
+  padding: 0 8px;
+}
+
+.home-presentation h1 {
+  font-family: var(--font-family-title);
+  font-size: 72px;
+}
+
+.carrousel-home {
+  display: flex;
+  justify-content: right;
+  width: 50%;
+}

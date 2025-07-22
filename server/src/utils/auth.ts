@@ -53,7 +53,11 @@ const login: RequestHandler = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
+      sameSite: "lax",
+      path: "/",
     });
+
+    console.log("Set-Cookie header:", res.getHeader("Set-Cookie"));
 
     res.status(200).json(payload);
   } catch (err) {
@@ -71,31 +75,42 @@ const logout: RequestHandler = (req, res) => {
 };
 
 const refreshToken: RequestHandler = (req, res) => {
-  try {
-    const token = req.cookies.token;
+  const token = req.cookies.token;
+  console.log("Cookies:", req.cookies);
+  console.log("Token reçu dans le cookie :", token);
 
-    if (!token) {
-      throw new Error("A token must be provided");
-    }
-
-    const secretKey = process.env.APP_SECRET;
-
-    if (!secretKey) {
-      throw new Error("A secret must be provided");
-    }
-
-    const verifyToken = jwt.verify(token, secretKey);
-
-    if (verifyToken) {
-      const { id, email } = verifyToken as JwtPayload;
-
-      const newToken = jwt.sign({ id, email }, secretKey, { expiresIn: "1d" });
-      res.cookie("token", newToken);
-      res.status(200).json({ id, email });
-    }
-  } catch (err) {
-    res.sendStatus(500);
+  if (!token) {
+    console.error("No token in cookies");
+    res.sendStatus(401);
+    return;
   }
+
+  let payload: JwtPayload;
+  try {
+    payload = jwt.verify(token, secretKey) as JwtPayload;
+  } catch (err) {
+    console.error("Échec de vérification du token :", err);
+    res.sendStatus(401);
+    return;
+  }
+
+  const newToken = jwt.sign(
+    { id: payload.id, email: payload.email, role: payload.role },
+    secretKey,
+    { expiresIn: "1d" },
+  );
+
+  res.cookie("token", newToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+  });
+
+  res.status(200).json({
+    id: payload.id,
+    email: payload.email,
+    role: payload.role,
+  });
 };
 
 export default { hashPassword, login, logout, refreshToken };
