@@ -57,11 +57,41 @@ const create = async (book: {
   return result;
 };
 
+const findByUser = async (userId: number) => {
+  const [rows] = await databaseClient.query(
+    `SELECT 
+       b.*, 
+       ROUND(AVG(r.rating)) AS averageRating 
+     FROM book AS b
+     LEFT JOIN rating AS r ON b.id = r.book_id
+     WHERE b.user_id = ?
+     GROUP BY b.id`,
+    [userId],
+  );
+  return rows;
+};
+
 const findAllThematics = async (): Promise<string[]> => {
   const [rows] = await databaseClient.query(
     "SELECT DISTINCT thematic FROM book",
   );
   return (rows as { thematic: string }[]).map((row) => row.thematic);
+};
+
+const findByThematic = async (thematic: string) => {
+  console.log("Requête SQL avec thématique :", thematic);
+  const [rows] = await databaseClient.query(
+    `SELECT 
+       b.*, 
+       ROUND(AVG(r.rating)) AS rating 
+     FROM book AS b
+     LEFT JOIN rating AS r ON b.id = r.book_id
+     WHERE b.thematic = ?
+     GROUP BY b.id`,
+    [thematic],
+  );
+  console.log("Résultats SQL :", rows);
+  return rows;
 };
 
 const update = async (
@@ -83,4 +113,13 @@ const remove = async (id: number) => {
   return result.affectedRows === 1;
 };
 
-export default { readAll, readById, create, update, remove, findAllThematics };
+export default {
+  readAll,
+  readById,
+  create,
+  update,
+  remove,
+  findAllThematics,
+  findByThematic,
+  findByUser,
+};

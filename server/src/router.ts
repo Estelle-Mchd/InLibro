@@ -12,20 +12,24 @@ import auth from "./utils/auth";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+router.post("/api/item", itemActions.add);
 
 router.get("/users", usersActions.browse);
-router.post("/users", usersActions.add);
+router.post("/user", usersActions.add);
 router.delete("/users/:id", usersActions.destroy);
 
-router.post("/login", auth.login);
+router.post("/auth/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/refresh-token", auth.refreshToken);
-router.post("/users", auth.hashPassword, usersActions.add);
+router.post("/users-add", auth.hashPassword, usersActions.add);
 
 router.get("/books", booksActions.browse);
+router.post("/books", booksActions.add);
 router.get("/books/thematics", booksActions.getAllThematics);
+router.get("/books/book-thematic/:thematic", booksActions.findByThematic);
+router.get("/books/user/:userId", booksActions.findByUser);
 router.get("/books/id/:id", booksActions.read);
+router.delete("/books/:id", booksActions.destroy);
 
 router.get("/reading-list/:userId", readingListActions.browseByUser);
 router.post("/reading-list", readingListActions.add);
@@ -35,6 +39,6 @@ router.get("/ratings/:bookId", ratingActions.browseByBook);
 router.get("/ratings/average/:bookId", ratingActions.getAverage);
 router.post("/ratings", ratingActions.addOrUpdate);
 router.put("/ratings/:userId/:bookId", ratingActions.addOrUpdate);
-router.delete("/ratings/:userId/:bookId", ratingActions.remove);
+router.delete("/ratings-delete/:userId/:bookId", ratingActions.remove);
 
 export default router;

@@ -21,27 +21,28 @@ h3 {
 }
 
 @font-face {
-  font-family: "instrumentSerif-Regular";
+  font-family: "PlayfairDisplay-VariableFont_wght";
   font-weight: 400;
   font-style: normal;
-  src: url(./src/assets/fonts/instrumentSerif-Regular.ttf) format(truetype);
+  src: url(./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf)
+    format(truetype);
 }
 
 @font-face {
-  font-family: "italianno-Regular";
+  font-family: "RougeScript-Regular";
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  src: url(./src/assets/fonts/italianno-Regular.ttf) format(truetype);
+  src: url(./src/assets/fonts/RougeScript-Regular.ttf) format(truetype);
 }
 
 :root {
   --light-bg-bloc-color: rgba(255, 254, 250);
   --light-bg-bloc-color-bis: rgba(242, 240, 235);
   --light-text-color: rgba(30, 30, 30);
-  --font-family-title: "italianno-Regular", sans-serif;
-  --font-family-body: "instrumentSerif-Regular", sans-serif;
+  --font-family-title: "RougeScript-Regular", sans-serif;
+  --font-family-body: "PlayfairDisplay-VariableFont_wght", sans-serif;
 }
 
 body {
@@ -59,6 +60,6 @@ main {
   min-height: 100vh;
 
   @media screen and (min-width: 768px) {
-    min-height: calc(100vh - 10vh - 7vh);
+    min-height: calc(100vh - 10vh - 5.1vh);
   }
 }

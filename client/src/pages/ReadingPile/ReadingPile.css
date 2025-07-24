@@ -1,0 +1,73 @@
+.reading-pile-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reading-pile-component h1 {
+  font-family: var(--font-family-title);
+  font-size: 56px;
+}
+
+.reading-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+.book-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+  border-radius: 20px;
+  box-shadow: 3px 3px rgba(128, 128, 128, 0.473);
+  box-sizing: border-box;
+  background-color: var(--light-bg-bloc-color-bis);
+  margin: 16px;
+  height: 500px;
+  padding: 8px;
+}
+
+.book-card img {
+  margin: 8px 0 0;
+  height: 200px;
+  width: 150px;
+}
+
+.book-info h2,
+.book-info h4 {
+  margin: 8px 0 4px;
+  text-align: center;
+}
+
+.book-info p {
+  text-align: left;
+  margin: 8px;
+  height: 90px;
+  overflow-y: auto;
+}
+
+.book-card button {
+  height: 30px;
+  width: 200px;
+  background-color: var(--light-bg-bloc-color);
+  border-radius: 20px;
+  box-shadow: 1px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 8px 8px;
+  box-shadow: 1px 1px gray;
+}
+
+.book-card button:hover {
+  transform: scale(1.05);
+}

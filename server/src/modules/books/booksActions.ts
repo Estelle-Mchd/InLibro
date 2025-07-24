@@ -49,6 +49,22 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
+const findByUser: RequestHandler = async (req, res) => {
+  const userId = Number.parseInt(req.params.userId);
+  if (Number.isNaN(userId)) {
+    res.status(400).json({ error: "ID utilisateur invalide" });
+    return;
+  }
+
+  try {
+    const books = await booksRepository.findByUser(userId);
+    res.status(200).json(books);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+};
+
 const edit: RequestHandler = async (req, res) => {
   const id = Number.parseInt(req.params.id);
   if (Number.isNaN(id)) {
@@ -79,6 +95,21 @@ const getAllThematics = async (req: Request, res: Response) => {
   }
 };
 
+const findByThematic = async (req: Request, res: Response) => {
+  try {
+    const { thematic } = req.params;
+    const books = await booksRepository.findByThematic(thematic);
+    console.log("Livres trouvés côté backend :", books);
+    res.json(books);
+  } catch (err) {
+    console.error(err);
+    console.error("Erreur dans findByThematic :", err);
+    res
+      .status(500)
+      .send("Erreur serveur lors de la récupération des livres par thématique");
+  }
+};
+
 const destroy: RequestHandler = async (req, res) => {
   const id = Number.parseInt(req.params.id);
   if (Number.isNaN(id)) {
@@ -99,4 +130,13 @@ const destroy: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, edit, destroy, getAllThematics };
+export default {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+  getAllThematics,
+  findByThematic,
+  findByUser,
+};

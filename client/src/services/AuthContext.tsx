@@ -15,13 +15,14 @@ type AuthContextType = {
   logout: () => void;
 };
 
-const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState<UserPayload | null>(null);
 
   useEffect(() => {
+    if (!isLogged) return;
     fetch("http://localhost:3310/api/refresh-token", {
       method: "GET",
       credentials: "include",
@@ -38,7 +39,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setIsLogged(false);
         setUser(null);
       });
-  }, []);
+  }, [isLogged]);
 
   const login = async (email: string, password: string) => {
     const res = await fetch("http://localhost:3310/api/auth/login", {
@@ -55,6 +56,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const userData: UserPayload = await res.json();
     setIsLogged(true);
     setUser(userData);
+    console.log("Cookie envoyé :", document.cookie);
   };
 
   const logout = () => {

@@ -1,0 +1,126 @@
+.backbutton-thematic {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flipbook-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 75vh;
+  margin: 0;
+}
+
+.my-flipbook {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.page-cover-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--light-bg-bloc-color-bis);
+  color: rgb(51, 51, 51);
+  padding: 2rem;
+  img {
+    width: 350px;
+  }
+}
+
+.page-cover-page h1 {
+  font-family: var(--font-family-title);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-cover-page p {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 350px;
+}
+
+.page-book-page {
+  background-color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(128, 128, 128, 0.466);
+}
+
+.page-book-page h2 {
+  font-size: 1rem;
+  color: rgb(51, 51, 51);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.page-book-page h4 {
+  font-size: 0.5rem;
+  color: rgb(51, 51, 51);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.book-cover {
+  max-width: 60%;
+  height: 250px;
+  margin: 0 72px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.page-book-page p {
+  font-size: 0.95rem;
+  color: rgb(51, 51, 51);
+  line-height: 1.4;
+  text-align: justify;
+  max-width: 90%;
+  height: 70px;
+  overflow-y: auto;
+}
+
+.rating-stars,
+.star-filled {
+  font-size: 1.5rem;
+  color: gold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.star-filled,
+.star {
+  background-color: var(--light-bg-bloc-color);
+  border: none;
+}
+
+.rating-stars .star {
+  padding: 0 2px;
+}
+
+.rating-stars .star:hover {
+  color: orange;
+}
+
+.add-to-pile-btn {
+  height: 30px;
+  width: 200px;
+  background-color: var(--light-bg-bloc-color-bis);
+  border-radius: 20px;
+  box-shadow: 1px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 0 8px 72px;
+}
+
+.add-to-pile-btn:hover {
+  text-decoration: underline;
+}

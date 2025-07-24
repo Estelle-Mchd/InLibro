@@ -1,0 +1,66 @@
+.section-my-books {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.section-my-books h1 {
+  font-family: var(--font-family-title);
+  font-size: 56px;
+}
+
+.section-my-books a {
+  height: 30px;
+  width: 200px;
+  background-color: var(--light-bg-bloc-color-bis);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 16px 16px;
+  color: black;
+}
+
+.section-my-books a:hover {
+  text-decoration: underline;
+}
+
+.table-container {
+  height: 500px;
+  width: 800px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.my-books-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.my-books-table th,
+.my-books-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.my-books-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  position: sticky;
+  top: 0; /* pour garder l'entête visible au scroll */
+  z-index: 1;
+}
+
+.my-books-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.my-books-table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}

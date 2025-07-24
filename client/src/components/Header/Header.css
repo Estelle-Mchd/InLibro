@@ -1,40 +1,41 @@
 .header-component {
   display: flex;
-  align-items: center;
+  align-items: center; /* Centrage vertical */
   justify-content: space-between;
   background-color: var(--light-bg-bloc-color-bis);
   padding: 0 24px;
-  margin: 0;
-  height: 10vh;
-
-  img {
-    width: 116px;
-    margin: 0;
-    padding: 0;
-  }
-  button {
-    color: rgb(49, 47, 47);
-    text-decoration: none;
-    cursor: pointer;
-    width: 100px;
-    height: 24px;
-    font-style: var(--font-family-title);
-  }
-
-  button:hover {
-    text-decoration: underline;
-  }
+  height: 80px; /* Hauteur fixe plutôt que 10vh */
+  box-sizing: border-box; /* Important pour éviter les débordements */
+}
+.header-component img {
+  height: 100px; /* Hauteur contrôlée, pour rester dans le header */
+  width: auto; /* Garde les proportions */
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.header-component a {
-  font-style: var(--font-family-title);
+.header-component img:hover {
+  transform: scale(1.05);
+}
+
+.header-component nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.header-component a,
+.header-component button {
+  font-family: var(--font-family-title);
   font-size: 32px;
   color: rgb(49, 47, 47);
+  background: none;
+  border: none;
   cursor: pointer;
-  width: 100px;
-  height: 24px;
+  padding: 4px 8px;
 }
 
-.header-component a:hover {
+.header-component a:hover,
+.header-component button:hover {
   text-decoration: underline;
 }

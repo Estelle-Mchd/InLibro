@@ -1,0 +1,65 @@
+.section-publish-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-publish-books h2 {
+  margin: 16px 0 0;
+  font-family: var(--font-family-title);
+  font-size: 56px;
+}
+
+.section-publish-books h4 {
+  margin: 0 0 16px;
+}
+
+.component-publish-book form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.component-publish-book input {
+  width: 400px;
+  height: 40px;
+  margin: 8px 16px;
+  padding: 16px 8px;
+  font-size: 16px;
+  font-family: var(--font-family-body);
+}
+
+.component-publish-book textarea {
+  width: 400px;
+  height: 130px;
+  font-size: 16px;
+  padding: 8px;
+  font-family: var(--font-family-body);
+}
+
+.component-publish-book select {
+  width: 400px;
+  height: 60px;
+  margin: 8px 16px;
+  padding: 16px 8px;
+  font-size: 16px;
+  font-family: var(--font-family-body);
+}
+
+.component-publish-book button {
+  width: 200px;
+  margin: 8px 16px;
+  height: 40px;
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 2px solid rgb(48, 47, 47);
+  cursor: pointer;
+}
+
+.component-publish-book button:hover {
+  text-decoration: underline;
+}
