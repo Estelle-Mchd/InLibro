@@ -1,3 +1,4 @@
+import { hash } from "argon2";
 import type { RequestHandler } from "express";
 import usersRepository from "./usersRepository";
 
@@ -14,9 +15,10 @@ const add: RequestHandler = async (req, res) => {
       res.status(400).json({ error: "Champs obligatoires manquants" });
       return;
     }
+    const hashedPassword = await hash(password);
 
-    const result = await usersRepository.create(req.body);
-
+    const user = { ...req.body, password: hashedPassword };
+    const result = await usersRepository.create(user);
     if (result.affectedRows === 1) {
       res
         .status(201)

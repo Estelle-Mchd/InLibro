@@ -1,0 +1,16 @@
+.back-button {
+  height: 30px;
+  width: 200px;
+  background-color: var(--light-bg-bloc-color-bis);
+  border-radius: 20px;
+  box-shadow: 1px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 16px 16px;
+  font-style: var(--font-family-body);
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}

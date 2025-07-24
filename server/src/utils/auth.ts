@@ -55,6 +55,7 @@ const login: RequestHandler = async (req, res) => {
       secure: false,
       sameSite: "lax",
       path: "/",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     console.log("Set-Cookie header:", res.getHeader("Set-Cookie"));
@@ -67,7 +68,11 @@ const login: RequestHandler = async (req, res) => {
 
 const logout: RequestHandler = (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
     res.sendStatus(200);
   } catch (err) {
     res.sendStatus(500);

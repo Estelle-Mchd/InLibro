@@ -6,11 +6,12 @@ import databaseClient, {
 
 class usersRepository {
   async create(body: User) {
+    console.log("début");
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO user (email, password, role) VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO user (firstname, lastname, email, password, role) VALUES (?, ?, ?, ?, ?)",
       [body.firstname, body.lastname, body.email, body.password, body.role],
     );
-
+    console.log("Coucou", result);
     return {
       id: result.insertId,
       affectedRows: result.affectedRows,

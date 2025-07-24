@@ -24,16 +24,22 @@ function Header() {
   }
   return (
     <section className="header-component">
-      <img src="/images/Logo-InLibro.png" alt="logo-inLibro" />
+      <Link to="/">
+        <img src="/images/Logo-InLibro.png" alt="logo-inLibro" />
+      </Link>
       <nav>
         {!isLogged ? (
           <>
             <Link to="/login"> Se connecter</Link>
           </>
         ) : (
-          <button type="button" onClick={handleLogout}>
-            Se déconnecter
-          </button>
+          <>
+            <Link to="/reading-pile"> Ma pile de lecture</Link>
+            <Link to="/my-books"> Mes propositions de lecture</Link>
+            <button type="button" onClick={handleLogout}>
+              Se déconnecter
+            </button>
+          </>
         )}
       </nav>
     </section>
