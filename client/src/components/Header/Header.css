@@ -1,15 +1,15 @@
 .header-component {
   display: flex;
-  align-items: center; /* Centrage vertical */
+  align-items: center;
   justify-content: space-between;
   background-color: var(--light-bg-bloc-color-bis);
   padding: 0 24px;
-  height: 80px; /* Hauteur fixe plutôt que 10vh */
-  box-sizing: border-box; /* Important pour éviter les débordements */
+  height: 80px;
+  box-sizing: border-box;
 }
 .header-component img {
-  height: 100px; /* Hauteur contrôlée, pour rester dans le header */
-  width: auto; /* Garde les proportions */
+  height: 100px;
+  width: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
 }

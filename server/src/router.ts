@@ -29,6 +29,7 @@ router.get("/books/thematics", booksActions.getAllThematics);
 router.get("/books/book-thematic/:thematic", booksActions.findByThematic);
 router.get("/books/user/:userId", booksActions.findByUser);
 router.get("/books/id/:id", booksActions.read);
+router.put("/books/:id", booksActions.edit);
 router.delete("/books/:id", booksActions.destroy);
 
 router.get("/reading-list/:userId", readingListActions.browseByUser);

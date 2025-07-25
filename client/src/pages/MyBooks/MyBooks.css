@@ -29,7 +29,7 @@
 
 .table-container {
   height: 500px;
-  width: 800px;
+  width: 1200px;
   overflow-y: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -45,15 +45,32 @@
 .my-books-table td {
   border: 1px solid #ddd;
   padding: 8px 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .my-books-table th {
   background-color: #f5f5f5;
   font-weight: bold;
   position: sticky;
-  top: 0; /* pour garder l'entête visible au scroll */
-  z-index: 1;
+  top: 0;
+  font-family: var(--font-family-body);
+}
+
+.my-books-table button {
+  border: none;
+  background-color: var(--light-bg-bloc-color-bis);
+  font-family: var(--font-family-body);
+  margin: 8px 0;
+  width: 150px;
+  height: 32px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px rgb(206, 205, 205);
+}
+
+.my-books-table button:hover {
+  transition: transform 0.2s ease;
+  text-decoration: underline;
 }
 
 .my-books-table tr:nth-child(even) {
