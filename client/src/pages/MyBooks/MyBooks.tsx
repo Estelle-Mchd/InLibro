@@ -16,6 +16,8 @@ type Book = {
 
 function MyBooks() {
   const [myBooks, setMyBooks] = useState<Book[]>([]);
+  const [editingBookId, setEditingBookId] = useState<number | null>(null);
+  const [newImageUrl, setNewImageUrl] = useState<string>("");
   const { user } = useAuth();
 
   const formatDate = (isoDate: string) => {
@@ -51,6 +53,55 @@ function MyBooks() {
       });
   };
 
+  const handleUpdateImage = (bookId: number) => {
+    fetch(`http://localhost:3310/api/books/${bookId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ cover_image_url: newImageUrl }),
+    })
+      .then((res) => {
+        if (!res.ok)
+          throw new Error("Erreur lors de la mise à jour de l’image");
+        // Met à jour le livre dans le state local :
+        setMyBooks((prev) =>
+          prev.map((book) =>
+            book.id === bookId
+              ? { ...book, cover_image_url: newImageUrl }
+              : book,
+          ),
+        );
+        setEditingBookId(null);
+        setNewImageUrl("");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Échec de la mise à jour de l’image.");
+      });
+  };
+
+  const handleRemoveImage = (bookId: number) => {
+    fetch(`http://localhost:3310/api/books/${bookId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ cover_image_url: null }),
+    })
+      .then((res) => {
+        if (!res.ok)
+          throw new Error("Erreur lors de la suppression de l’image");
+        setMyBooks((prev) =>
+          prev.map((book) =>
+            book.id === bookId ? { ...book, cover_image_url: undefined } : book,
+          ),
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Échec de la suppression de l’image.");
+      });
+  };
+
   return (
     <section className="section-my-books">
       <h1>Mes livres publiés</h1>
@@ -65,6 +116,8 @@ function MyBooks() {
                   <th>Titre</th>
                   <th>Auteur</th>
                   <th>Date de la publication</th>
+                  <th>Image de couverture</th>
+                  <th>Gestion des images de couverture</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -75,11 +128,67 @@ function MyBooks() {
                     <td>{book.author}</td>
                     <td>{formatDate(book.publication_date)}</td>
                     <td>
+                      {book.cover_image_url ? (
+                        <img
+                          src={book.cover_image_url}
+                          alt={book.name}
+                          style={{
+                            width: "60px",
+                            height: "auto",
+                            borderRadius: "4px",
+                          }}
+                        />
+                      ) : (
+                        "Aucune"
+                      )}
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveImage(book.id)}
+                      >
+                        Supprimer l'image
+                      </button>
+                      <br />
+                      {editingBookId === book.id ? (
+                        <div>
+                          <input
+                            type="text"
+                            placeholder="Nouvelle URL"
+                            value={newImageUrl}
+                            onChange={(e) => setNewImageUrl(e.target.value)}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleUpdateImage(book.id)}
+                          >
+                            Valider
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setEditingBookId(null)}
+                          >
+                            Annuler
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditingBookId(book.id);
+                            setNewImageUrl(book.cover_image_url || "");
+                          }}
+                        >
+                          Modifier l’image
+                        </button>
+                      )}
+                    </td>
+                    <td>
                       <button
                         type="button"
                         onClick={() => handleDelete(book.id)}
                       >
-                        Supprimer
+                        Supprimer le livre
                       </button>
                     </td>
                   </tr>

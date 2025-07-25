@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer className="footer-component">
       <nav className="link-footer">
-        <Link to="/">Nous contacter</Link>
-        <Link to="/">A propos</Link>
+        <Link to="/about">Nous contacter</Link>
+        <Link to="/about">A propos</Link>
         <Link to="/">Revue de presse</Link>
         <Link to="/">C.G.V</Link>
       </nav>

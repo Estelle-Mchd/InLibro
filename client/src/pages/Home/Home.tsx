@@ -13,7 +13,7 @@ function Home() {
             Choisissez une thématique et découvrez votre prochain coup de coeur
             littéraire !
           </p>
-          <Link to="/">InLibro, c'est quoi ?</Link>
+          <Link to="/about">InLibro, c'est quoi ?</Link>
         </article>
         <article className="carrousel-home">
           <Carrousel onThematicSelect={() => {}} />

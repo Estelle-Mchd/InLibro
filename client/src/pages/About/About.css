@@ -1,0 +1,65 @@
+.about-page {
+  background-image: url(/images/livre-de-tourner-les-pages-et-une-tasse.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  height: 84.9vh;
+}
+
+.about-page p {
+  width: 600px;
+  margin: 8px;
+}
+
+.first-party-about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+
+  h1 {
+    font-size: 48px;
+    font-family: var(--font-family-title);
+  }
+}
+
+.component-about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.component-about article {
+  height: 220px;
+  /* width: 800px; */
+}
+
+.left-about {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin: 8px 16px;
+}
+
+.right-about {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+.left-about h2,
+.right-about h2 {
+  margin: 16px 8px;
+}
+
+.left-about li {
+  margin: 8px 40px;
+  width: 550px;
+  font-size: 15px;
+}
